@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>  
+<body ng-app="">
+
+<p>Proovi jätta input väli tühjaks</p>
+
+<form name="myForm">
+<p>Nimi:
+<input name="myName" ng-model="myName" required>
+<span ng-show="myForm.myName.$touched && myForm.myName.$invalid">Nimi on kohustuslik.</span>
+</p>
+
+<p>Aadress:
+<input name="myAddress" ng-model="myAddress" required>
+</p>
+
+</form>
+
+<p>We use the ng-show directive to only show the error message if the field has been touched AND is empty.</p>
+
+</body>
+</html>
