@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+</head>
+<body ng-app="myApp">
+
+    <p><a href="#!/main">Main</a></p>
+    <a href="#!first">First</a>
+    <a href="#!second">Second</a>
+
+    <div ng-view></div>
+
+    <script>
+        var app = angular.module("myApp", ["ngRoute"]);
+        app.config(function($routeProvider) {
+            $routeProvider
+            .when("/main", {
+                template: `
+                    <div>
+                        <h1>Welcome to the Main Page!</h1>
+                        <p>This greeting is only visible on the main page.</p>
+                    </div>
+                `
+            })
+            .when("/first", {
+                template: `
+                    <div>
+                        <h1>First Example Page</h1>
+                        <p>Content for the first example page.</p>
+                    </div>
+                `
+            })
+            .when("/second", {
+                template: `
+                    <div>
+                        <h1>Second Example Page</h1>
+                        <p>Content for the second example page.</p>
+                    </div>
+                `
+            })
+            .otherwise({
+                redirectTo: '/main'
+            });
+        });
+    </script>
+</body>
+</html>
